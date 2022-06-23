@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const poemdata = require("./schema")
 
 const dblink = "mongodb+srv://gagan:9815926299@cluster0.o1akn.mongodb.net/poems"
 
@@ -13,6 +14,6 @@ const dbStart = () => {
       });
   };
 
-module.exports = dbStart;
+module.exports = {dbStart, poemdata};
 
   
