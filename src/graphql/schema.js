@@ -33,6 +33,8 @@ type Query {
     poem(input: String!): Poem
     allpoems(input: poemInput): [Poem]!
     allauthors: [Author]!
+    randompoem: Poem
+    randomstory: Poem
 }
 
 type Mutation {

@@ -33,6 +33,17 @@ module.exports = {
                return {name: item}
             })
         },
+        async randompoem(_,__, {poemdata}){
+            const numberofpoems = await poemdata.countDocuments({type: "poem"}).exec()
+            const skips = Math.floor(Math.random() * (numberofpoems) )
+            return poemdata.findOne({type: "poem"}).skip(skips).exec()
+        },
+        async randomstory(_,__, {poemdata}){
+            const numberofstories = await poemdata.countDocuments({type: "story"}).exec()
+            const skips = Math.floor(Math.random() * (numberofstories) )
+            console.log(skips)
+            return poemdata.findOne({type: "story"}).skip(skips).exec()
+        }
     },
 
     Author: {
