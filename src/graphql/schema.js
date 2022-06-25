@@ -19,6 +19,7 @@ type Author {
 input poemInput {
     name: String
     author: String
+    type: String
 }
 
 input newContent {
@@ -30,9 +31,7 @@ input newContent {
 
 type Query {
     poem(input: String!): Poem
-    story(input: String!): Poem
     allpoems(input: poemInput): [Poem]!
-    allstories(input: poemInput): [Poem]!
     allauthors: [Author]!
 }
 
