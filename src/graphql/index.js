@@ -35,7 +35,7 @@ const startApollo = async function startApolloServer(typeDefs, resolvers, app) {
   });
 
 
-  await new Promise(resolve => httpServer.listen({ port: process.env.PORT | 4000 }, resolve));
+  await new Promise(resolve => httpServer.listen({ port: process.env.PORT || 4000 }, resolve));
 
   console.log(`🚀 Server ready at http://localhost:4000/`);
 
