@@ -1,7 +1,6 @@
 module.exports = {
     Query: {
         poem(_, {input}, {poemdata}){
-            console.log("something came")
             return poemdata.findOne({name: input}).exec()
         },
         allpoems(_, {input}, {poemdata}){
@@ -28,7 +27,6 @@ module.exports = {
         },
         async allauthors(_, __, {poemdata}){
             const authors = await poemdata.find().distinct("author").exec()
-            console.log(authors)
             return authors.map((item)=>{
                return {name: item}
             })
