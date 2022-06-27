@@ -54,7 +54,7 @@ module.exports = {
             })
         },
         stories(author, __, {poemdata}){
-            return poemdata.exists({author: author.name, type: "stories"}).then(exists=>{
+            return poemdata.exists({author: author.name, type: "story"}).then(exists=>{
                 if(exists){
                     return true
                 }
