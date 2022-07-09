@@ -9,7 +9,9 @@ app.get("/",(req, res)=>{
   res.sendFile(path.join(__dirname, "./build/index.html"))
 })
 
+
 dbStart().then(()=>{
     startApollo(typeDefs, resolvers, app).then().catch(err=>console.log(err))
 })
+
 

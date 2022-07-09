@@ -4,6 +4,7 @@ const http = require("http")
 const typeDefs = require('./schema')
 const resolvers = require('./resolvers')
 const {poemdata} = require('../db/db')
+const path = require("path")
 
 const startApollo = async function startApolloServer(typeDefs, resolvers, app) {
 
@@ -33,7 +34,10 @@ const startApollo = async function startApolloServer(typeDefs, resolvers, app) {
     app,
     path: '/graphql'
   });
-
+  
+  app.use((req, res)=>{
+    res.sendFile(path.join(__dirname, "../build/index.html"))
+  })
 
   await new Promise(resolve => httpServer.listen({ port: process.env.PORT || 4000 }, resolve));
 
